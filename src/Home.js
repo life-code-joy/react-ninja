@@ -1,23 +1,21 @@
+import { useState } from 'react';
+
 const Home = () => {
-  const handleClick = (e) => {
-    console.log('clicked', e);
+  const [friend, setFriend] = useState('chet');
+  const [age, setAge] = useState(23);
+  const [details, setDetails] = useState('CLICK TO SEE HIS DETAILS.');
+  const handleClick = () => {
+    setFriend('jerry muffins');
+    setAge(12);
+    setDetails('He loves to listen to fanhalen.');
   };
-
-  const handleClickAgain = (name, e) => {
-    console.log('I got clicked my dear friend ... ', name, e.target);
-  };
-
   return (
     <div className='home'>
       <h2 className='home-style-heading'>Homepage</h2>
-      <button onClick={handleClick}>click me</button>
-      <button
-        onClick={(e) => {
-          handleClickAgain('Mario', e);
-        }}
-      >
-        click me
-      </button>
+      <p>
+        {friend} is {age} years old and his details are ... {details}.
+      </p>
+      <button onClick={handleClick}>Click me</button>
     </div>
   );
 };
